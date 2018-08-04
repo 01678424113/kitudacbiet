@@ -43,6 +43,8 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="theme/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
 
+    <link rel="stylesheet" href="css/style-admin.css">
+
     <link rel="stylesheet" href="js/bootstrap-toastr/toastr.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -143,7 +145,22 @@
 <script src="theme/assets/vendor_plugins/weather-icons/WeatherIcon.js"></script>
 
 <script src="theme/js/pages/data-table.js"></script>
+<!-- This is data table -->
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/media/js/jquery.dataTables.min.js"></script>
 
+<!-- start - This is for export functionality only -->
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/buttons.flash.min.js"></script>
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/ex-js/jszip.min.js"></script>
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/ex-js/pdfmake.min.js"></script>
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/ex-js/vfs_fonts.js"></script>
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/buttons.html5.min.js"></script>
+<script src="theme/assets/vendor_plugins/DataTables-1.10.15/extensions/Buttons/js/buttons.print.min.js"></script>
+<!-- end - This is for export functionality only -->
+
+<!-- DataTables -->
+<script src="theme/assets/vendor_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="theme/assets/vendor_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script type="text/javascript">
 

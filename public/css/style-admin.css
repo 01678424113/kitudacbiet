@@ -1,0 +1,6 @@
+#example1{
+    margin-top: 20px;
+}
+.form-inline label{
+    display: inherit;
+}

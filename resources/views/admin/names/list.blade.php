@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Danh mục
+            Tên
         </h1>
     </section>
 
@@ -32,26 +32,26 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $category)
+                            @foreach($names as $name)
                                 <tr>
-                                    <td>{{$category->name}}</td>
-                                    <td>{{$category->title}}</td>
-                                    <td><a href="{{$category->link}}">Click</a></td>
-                                    <td>{{$category->sort_by}}</td>
+                                    <td>{{$name->name}}</td>
+                                    <td>{{$name->title}}</td>
+                                    <td><a href="{{$name->link}}">Click</a></td>
+                                    <td>{{$name->sort_by}}</td>
                                     <td>
-                                        @if($category->status == \App\Category::$ACTIVE)
+                                        @if($name->status == \App\Name::$ACTIVE)
                                             <label for="" class="label label-success">Hoạt đông</label>
                                         @else
                                             <label for="" class="label label-default">Tạm khóa</label>
                                         @endif
                                     </td>
-                                    <td>{{date('Y-m-d',strtotime($category->created_at))}}</td>
+                                    <td>{{date('Y-m-d',strtotime($name->created_at))}}</td>
                                     <td>
-                                        <a href="{{route('categories.edit',$category->id)}}"
+                                        <a href="{{route('names.edit',$name->id)}}"
                                            class="btn btn-info">Sửa</a>
                                     </td>
                                     <td>
-                                        <form action="{{route('categories.destroy',$category->id)}}" method="post">
+                                        <form action="{{route('names.destroy',$name->id)}}" method="post">
                                             {{ method_field('DELETE') }}
                                             {{csrf_field()}}
                                             <button type="submit" class="btn btn-danger">Xóa</button>

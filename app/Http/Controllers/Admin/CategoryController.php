@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Name;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -60,7 +61,6 @@ class CategoryController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Đã có lỗi xảy ra');
         }
-
     }
 
     /**
@@ -128,6 +128,17 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        if ($category) {
+            $checkNames = Name::where('category_id', $id)->first();
+            if ($checkNames) {
+                return redirect()->back()->with('error', 'Bạn không thể xóa do vẫn còn tên thuộc danh mục này');
+            } else {
+                $category->delete();
+                return redirect()->back()->with('success', 'Xóa danh mục thành công');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Danh mục không tồn tại');
+        }
     }
 }

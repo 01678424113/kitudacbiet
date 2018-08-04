@@ -22,11 +22,10 @@
             </form>
             <!-- /.search form -->
         </div>
-
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active">
+            <li class="{{(Request::is('admin'))?'active':''}}">
                 <a href="{{route('homeAdmin')}}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
@@ -34,7 +33,7 @@
             </span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview {{(Request::is('admin/categories*'))?'active':''}}">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>Danh mục</span>
@@ -47,7 +46,7 @@
                     <li><a href="{{route('categories.create')}}"><i class="fa fa-circle-o"></i> Thêm</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview {{(Request::is('admin/names*'))?'active':''}}">
                 <a href="#">
                     <i class="fa fa-edit"></i>
                     <span>Tên</span>
@@ -60,7 +59,7 @@
                     <li><a href="{{route('names.create')}}"><i class="fa fa-circle-o"></i> Thêm</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview {{(Request::is('admin/settings/*'))?'active':''}}">
                 <a href="#">
                     <i class="fa fa-cog"></i>
                     <span>Setting</span>
@@ -79,10 +78,13 @@
     <!-- /.sidebar -->
     <div class="sidebar-footer">
         <!-- item-->
-        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i class="fa fa-cog fa-spin"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
+                    class="fa fa-cog fa-spin"></i></a>
         <!-- item-->
-        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="fa fa-envelope"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
+                    class="fa fa-envelope"></i></a>
         <!-- item-->
-        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="fa fa-power-off"></i></a>
+        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+                    class="fa fa-power-off"></i></a>
     </div>
 </aside>
