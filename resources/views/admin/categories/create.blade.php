@@ -66,13 +66,14 @@
                             </div>
                             <div class="form-group">
                                 <h5>Trạng thái <span class="text-danger">*</span></h5>
-                                <div class="demo-radio-button">
-                                    <input name="status" type="radio" checked="" value="{{\App\Category::$ACTIVE}}">
-                                    <label for="radio_1">Hoạt đông</label>
-                                    <input name="group1" type="radio" id="radio_2">
-                                    <label for="radio_2">Tạm khóa</label>
-                                    <input name="status" type="radio" class="with-gap" value="{{\App\Category::$INACTIVE}}">
-                                </div>
+                                <fieldset class="controls">
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio"  name="status" required="" id="styled_radio1" class="custom-control-input" value="{{\App\Category::$ACTIVE}}"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Hoạt động</span> </label>
+                                    <div class="help-block"></div></fieldset>
+                                <fieldset>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio"  name="status" id="styled_radio2" class="custom-control-input" value="{{\App\Category::$INACTIVE}}"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Tạm khóa</span> </label>
+                                </fieldset>
                             </div>
                             <div class="form-group">
                                 <h5>Sắp xếp <span class="text-danger">*</span></h5>

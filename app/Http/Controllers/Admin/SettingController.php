@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Setting;
+use Exception;
+use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +17,12 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        $settings = Setting::all();
+        $response = [
+            'title' => 'Danh sách cài đặt',
+            'settings' => $settings
+        ];
+        return view('admin.settings.list', $response);
     }
 
     /**
@@ -24,7 +32,10 @@ class SettingController extends Controller
      */
     public function create()
     {
-        //
+        $response = [
+            'title' => 'Tạo setting'
+        ];
+        return view('admin.settings.create', $response);
     }
 
     /**
@@ -35,7 +46,18 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $setting = new Setting();
+        $setting->name = $request->name;
+        $setting->slug = $request->slug;
+        $setting->value = $request->value;
+        $setting->status = $request->status;
+        $setting->created_at = time();
+        try {
+            $setting->save();
+            return redirect()->back()->with('success', 'Tạo setting mới thành công');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Đã có lỗi xảy ra');
+        }
     }
 
     /**
@@ -57,7 +79,16 @@ class SettingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $setting = Setting::where('id', $id)->first();
+        if ($setting) {
+            $response = [
+                'title' => 'Sửa setting',
+                'setting' => $setting
+            ];
+            return view('admin.settings.edit', $response);
+        } else {
+            return redirect()->back()->with('error', 'Setting không tồn tại');
+        }
     }
 
     /**
@@ -69,7 +100,18 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $setting = Setting::find($id);
+        $setting->name = $request->name;
+        $setting->slug = $request->slug;
+        $setting->value = $request->value;
+        $setting->status = $request->status;
+        $setting->created_at = time();
+        try {
+            $setting->save();
+            return redirect()->back()->with('success', 'Sửa setting thành công');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Đã có lỗi xảy ra');
+        }
     }
 
     /**
@@ -80,6 +122,12 @@ class SettingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $setting = Setting::find($id);
+        if ($setting) {
+            $setting->delete();
+            return redirect()->back()->with('success', 'Xóa setting thành công');
+        } else {
+            return redirect()->back()->with('error', 'Setting không tồn tại');
+        }
     }
 }
