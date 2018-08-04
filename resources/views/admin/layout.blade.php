@@ -9,7 +9,7 @@
     <link rel="icon" href="theme/images/favicon.ico">
 
     <title>Fox Admin - Dashboard</title>
-
+    <base href="{{asset('')}}">
     <!-- Bootstrap 4.0-->
     <link rel="stylesheet" href="theme/assets/vendor_components/bootstrap/dist/css/bootstrap.css">
 
@@ -43,7 +43,7 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="theme/assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css">
 
-
+    <link rel="stylesheet" href="js/bootstrap-toastr/toastr.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -142,12 +142,39 @@
 <!-- weather for demo purposes -->
 <script src="theme/assets/vendor_plugins/weather-icons/WeatherIcon.js"></script>
 
+<script src="theme/js/pages/data-table.js"></script>
+
+
 <script type="text/javascript">
 
     WeatherIcon.add('icon1', WeatherIcon.SLEET, {stroke: false, shadow: false, animated: true});
     WeatherIcon.add('icon2', WeatherIcon.SNOW, {stroke: false, shadow: false, animated: true});
     WeatherIcon.add('icon3', WeatherIcon.LIGHTRAINTHUNDER, {stroke: false, shadow: false, animated: true});
 
+</script>
+<script src="js/bootstrap-toastr/toastr.min.js"></script>
+<script type="text/javascript">
+    toastr.options = {
+        closeButton: true,
+        debug: false,
+        positionClass: "toast-top-right",
+        onclick: null,
+        showDuration: "1000",
+        hideDuration: "1000",
+        timeOut: "5000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut"
+    };
+    @if (Session::has('error'))
+        toastr['error']('{!! Session::get("error") !!}');
+    @elseif(Session::has('success'))
+        toastr['success']('{!! Session::get("success") !!}');
+    @elseif(Session::has('warning'))
+        toastr['warning']('{!! Session::get("warning") !!}');
+    @endif
 </script>
 @yield('script')
 

@@ -22,4 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin'],function (){
     Route::get('/','Admin\HomeController@index')->name('homeAdmin');
+
+    Route::resources([
+        'categories' => 'Admin\CategoryController',
+        'names' => 'Admin\NameController',
+        'settings' => 'Admin\SettingController'
+    ]);
 });
