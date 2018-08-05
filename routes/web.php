@@ -28,6 +28,7 @@ Route::group(['prefix'=>'admin'],function (){
     Route::resources([
         'categories' => 'Admin\CategoryController',
         'names' => 'Admin\NameController',
-        'settings' => 'Admin\SettingController'
+        'settings' => 'Admin\SettingController',
+        'comments' => 'Admin\CommentController'
     ]);
 });

@@ -73,6 +73,14 @@
                 </ul>
             </li>
 
+            <li class="{{(Request::is('comments/*'))?'active':''}}">
+                <a href="{{route('comments.index')}}">
+                    <i class="fa ion-ios-chatbubble-outline"></i> <span>Bình luận</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
