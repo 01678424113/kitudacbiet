@@ -162,6 +162,8 @@
 <script src="theme/assets/vendor_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="theme/assets/vendor_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script type="text/javascript">
 
     WeatherIcon.add('icon1', WeatherIcon.SLEET, {stroke: false, shadow: false, animated: true});

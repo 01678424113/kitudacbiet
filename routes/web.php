@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin'],function (){
     Route::get('/','Admin\HomeController@index')->name('homeAdmin');
+    Route::get('/change-password','Admin\HomeController@changePassword')->name('changePassword');
+    Route::post('/change-password','Admin\HomeController@doChangePassword')->name('doChangePassword');
 
     Route::resources([
         'categories' => 'Admin\CategoryController',
